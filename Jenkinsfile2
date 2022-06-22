@@ -4,12 +4,7 @@
 
 pipeline{
 
-      agent {
-                docker {
-                image 'maven:3-openjdk-11'
-                args '-v $HOME/.m2:/root/.m2'
-                }
-            }
+      agent any
         
         stages{
 
@@ -23,7 +18,7 @@ pipeline{
                  
                  stage ('Check logs') {
                     steps {
-                        filterLogs ('WARNING', 50)
+                        filterLogs ('WARNING', 1)
                     }
                 }
 		
